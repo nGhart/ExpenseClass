@@ -159,9 +159,14 @@ const AddExpense = () => {
               value={state.category}
             >
               <option> Choose Category</option>
-              <option value="Food">Food and Drink</option>
-              <option value="2">Transport</option>
-              <option value="3">Utilities</option>
+              <option value="Food">Food</option>
+              <option value="Transport">Transport</option>
+<option value="Groceries">Groceries</option>
+<option value="Utilities">Utilities</option>
+<option value="Rent">Rent</option>
+<option value="Self-care">Self-care</option>
+              <option value="Entertainment">Entertainment</option>
+<option value='Miscellaneous'>Miscellaneous</option>
             </Form.Select>
           </Form.Group>
           <Form.Group
