@@ -208,6 +208,7 @@ const AddExpense = () => {
             <Button
               type="submit"
               style={{ width: '150px', backgroundColor: 'cornflowerblue' }}
+              onClick={handleClose}
             >
               <span>Cancel</span>
             </Button>
