@@ -42,19 +42,8 @@ const SingleExpense = (props) => {
           flexDirection: 'column',
         }}
       >
-        <button
-          style={{
-            width: '60px',
-            backgroundColor: 'grey',
-            color: 'white',
-            borderRadius: '5px',
-            margin: '2px',
-            border: 'none',
-          }}
-          onClick={() => {}}
-        >
+
           <Edit user={props.user} editExpense={props.editExpense}/>
-        </button>
         <button
           style={{
             width: '60px',
