@@ -53,7 +53,7 @@ const SingleExpense = (props) => {
           }}
           onClick={() => {}}
         >
-          <Edit/>
+          <Edit user={props.user} editExpense={props.editExpense}/>
         </button>
         <button
           style={{
