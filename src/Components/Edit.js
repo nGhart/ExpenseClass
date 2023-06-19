@@ -1,8 +1,26 @@
 import React, {Component} from 'react';
+import {Form, Button} from 'react-bootstrap';
 
 class Edit extends Component{
-return(
+  contructor(props){
+    super(props);
+  };
+  render(){
+    return(
   <div>
+          <button
+          style={{
+            width: '60px',
+            backgroundColor: 'grey',
+            color: 'white',
+            borderRadius: '5px',
+            margin: '2px',
+            border: 'none',
+          }}
+          onClick={() => {}}
+        >
+        </button>
+          <div className="modal">
   <Form
           style={{
             width: '100%',
@@ -143,7 +161,10 @@ return(
             </Button>
           </Form.Group>
         </Form>
+       </div>
   </div>
 );
+  }};
+
 
 export default Edit;
