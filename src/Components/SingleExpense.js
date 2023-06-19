@@ -1,6 +1,7 @@
 import React from 'react';
 import { deleteExpense } from '../features/appSlice';
 import { useDispatch } from 'react-redux';
+import {Edit} from './Components/Edit';
 
 const SingleExpense = (props) => {
   const dispatch = useDispatch();
@@ -52,7 +53,7 @@ const SingleExpense = (props) => {
           }}
           onClick={() => {}}
         >
-          Edit
+          <Edit/>
         </button>
         <button
           style={{
