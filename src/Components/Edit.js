@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Form, Button} from 'react-bootstrap';
+import {editExpense}
 
 class Edit extends Component{
   contructor(props){
