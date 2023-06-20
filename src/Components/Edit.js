@@ -1,15 +1,20 @@
-import React, {Component,useState} from 'react';
-import {Form, Button} from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Form, Button, Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { editExpense } from '../features/appSlice';
 
-const Edit = (props) =>{
+const Edit = (props) => {
   const [state, setState] = useState({
     date: props.user.date,
-    name:props.user.name ,
+    name: props.user.name,
     category: props.user.category,
-    amount:props.user.amount,
+    amount: props.user.amount,
   });
+  console.log(props.user.name);
+  console.log('am');
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
@@ -33,11 +38,31 @@ const Edit = (props) =>{
       category: '',
       amount: '',
     });
+    handleClose();
   };
-    return(
-  <div>
-          <div>
-  <Form
+  return (
+    <div>
+      <button
+        style={{
+          width: '60px',
+          backgroundColor: 'grey',
+          color: 'white',
+          borderRadius: '5px',
+          margin: '2px',
+          border: 'none',
+        }}
+        onClick={handleShow}
+      >
+        Edit
+      </button>
+
+      <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Form
           style={{
             width: '100%',
             minHeight: '300px',
@@ -46,6 +71,7 @@ const Edit = (props) =>{
           }}
           onSubmit={handleSubmit}
         >
+          <h4 style={{ textAlign: 'center' }}>Edit</h4>
           <Form.Group
             className="mb-3"
             controlId="formBasicDate"
@@ -125,12 +151,12 @@ const Edit = (props) =>{
               <option> Choose Category</option>
               <option value="Food">Food</option>
               <option value="Transport">Transport</option>
-<option value="Groceries">Groceries</option>
-<option value="Utilities">Utilities</option>
-<option value="Rent">Rent</option>
-<option value="Self-care">Self-care</option>
+              <option value="Groceries">Groceries</option>
+              <option value="Utilities">Utilities</option>
+              <option value="Rent">Rent</option>
+              <option value="Self-care">Self-care</option>
               <option value="Entertainment">Entertainment</option>
-<option value='Miscellaneous'>Miscellaneous</option>
+              <option value="Miscellaneous">Miscellaneous</option>
             </Form.Select>
           </Form.Group>
           <Form.Group
@@ -173,14 +199,13 @@ const Edit = (props) =>{
               type="submit"
               style={{ width: '150px', backgroundColor: 'cornflowerblue' }}
             >
-              <span>Add</span>
+              <span>Save</span>
             </Button>
           </Form.Group>
         </Form>
-       </div>
-  </div>
-);
-  };
-
+      </Modal>
+    </div>
+  );
+};
 
 export default Edit;
