@@ -4,9 +4,8 @@ import SingleExpense from './SingleExpense';
 import Stack from 'react-bootstrap/Stack';
 
 const ExpensesList = () => {
-  const state = useSelector((state) => {
-    return state.userReducer;
-  });
+  const state = useSelector((state) => state.userReducer);
+  console.log(state);
   return (
     <>
       <Stack gap={2} style={{ marginTop: '5px' }}>

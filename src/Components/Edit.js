@@ -1,27 +1,42 @@
-import React, {Component} from 'react';
+import React, {Component,useState} from 'react';
 import {Form, Button} from 'react-bootstrap';
-import {editExpense}
+import { useDispatch } from 'react-redux';
+import { editExpense } from '../features/appSlice';
 
-class Edit extends Component{
-  contructor(props){
-    super(props);
+const Edit = (props) =>{
+  const [state, setState] = useState({
+    date: props.user.date,
+    name:props.user.name ,
+    category: props.user.category,
+    amount:props.user.amount,
+  });
+  const dispatch = useDispatch();
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    setState({ ...state, [e.target.name]: e.target.value });
   };
-  render(){
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newExpense = {
+      date: state.date,
+      name: state.name,
+      category: state.category,
+      amount: state.amount,
+      id: props.user.id,
+    };
+    dispatch(editExpense(newExpense));
+    setState({
+      date: '',
+      name: '',
+      category: '',
+      amount: '',
+    });
+  };
     return(
   <div>
-          <button
-          style={{
-            width: '60px',
-            backgroundColor: 'grey',
-            color: 'white',
-            borderRadius: '5px',
-            margin: '2px',
-            border: 'none',
-          }}
-          onClick={() => {}}
-        >
-        </button>
-          <div className="modal">
+          <div>
   <Form
           style={{
             width: '100%',
@@ -165,7 +180,7 @@ class Edit extends Component{
        </div>
   </div>
 );
-  }};
+  };
 
 
 export default Edit;
