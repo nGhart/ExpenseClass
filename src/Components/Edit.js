@@ -5,13 +5,12 @@ import { editExpense } from '../features/appSlice';
 
 const Edit = (props) => {
   const [state, setState] = useState({
-    date: props.user.date,
-    name: props.user.name,
-    category: props.user.category,
-    amount: props.user.amount,
+    date: props.item.date,
+    name: props.item.name,
+    category: props.item.category,
+    amount: props.item.amount,
   });
-  console.log(props.user.name);
-  console.log('am');
+  // console.log(props.item.name);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -29,7 +28,7 @@ const Edit = (props) => {
       name: state.name,
       category: state.category,
       amount: state.amount,
-      id: props.user.id,
+      id: props.item.id,
     };
     dispatch(editExpense(newExpense));
     setState({
