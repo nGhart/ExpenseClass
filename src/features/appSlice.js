@@ -17,14 +17,14 @@ const expenseSlice = createSlice({
         }
       });
     },
-    editExpense:(state,action)=>{
-     const newState= state.expenses.map((expense)=>{
-        if(expense.id ===action.payload.id){
-          return action.payload
+    editExpense: (state, action) => {
+      const newState = state.expenses.map((expense) => {
+        if (expense.id === action.payload.id) {
+          return action.payload;
         }
-      })
-      state.expenses=[...newState]
-    }
+      });
+      state.expenses = [...newState];
+    },
   },
 });
 export const { addExpense, deleteExpense, editExpense } = expenseSlice.actions;
