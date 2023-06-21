@@ -1,19 +1,15 @@
-import React, { useState } from 'react';
-import { Form, Button, Modal } from 'react-bootstrap';
+import React, { Component, useState } from 'react';
+import { Form, Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { editExpense } from '../features/appSlice';
 
 const Edit = (props) => {
   const [state, setState] = useState({
-    date: props.item.date,
-    name: props.item.name,
-    category: props.item.category,
-    amount: props.item.amount,
+    date: props.user.date,
+    name: props.user.name,
+    category: props.user.category,
+    amount: props.user.amount,
   });
-  // console.log(props.item.name);
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
@@ -28,7 +24,7 @@ const Edit = (props) => {
       name: state.name,
       category: state.category,
       amount: state.amount,
-      id: props.item.id,
+      id: props.user.id,
     };
     dispatch(editExpense(newExpense));
     setState({
@@ -37,30 +33,11 @@ const Edit = (props) => {
       category: '',
       amount: '',
     });
-    handleClose();
+    props.handleClose();
   };
   return (
     <div>
-      <button
-        style={{
-          width: '60px',
-          backgroundColor: 'grey',
-          color: 'white',
-          borderRadius: '5px',
-          margin: '2px',
-          border: 'none',
-        }}
-        onClick={handleShow}
-      >
-        Edit
-      </button>
-
-      <Modal
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-      >
+      <div>
         <Form
           style={{
             width: '100%',
@@ -70,7 +47,6 @@ const Edit = (props) => {
           }}
           onSubmit={handleSubmit}
         >
-          <h4 style={{ textAlign: 'center' }}>Edit</h4>
           <Form.Group
             className="mb-3"
             controlId="formBasicDate"
@@ -198,11 +174,11 @@ const Edit = (props) => {
               type="submit"
               style={{ width: '150px', backgroundColor: 'cornflowerblue' }}
             >
-              <span>Save</span>
+              <span>Add</span>
             </Button>
           </Form.Group>
         </Form>
-      </Modal>
+      </div>
     </div>
   );
 };
