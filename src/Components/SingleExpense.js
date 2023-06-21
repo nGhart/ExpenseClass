@@ -79,7 +79,7 @@ const SingleExpense = (props) => {
       </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Edit Expense</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Edit
