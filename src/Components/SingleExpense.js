@@ -1,16 +1,16 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import { deleteExpense } from '../features/appSlice';
 import { useDispatch } from 'react-redux';
-import { Modal,Button } from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
 import Edit from './Edit';
 
 const SingleExpense = (props) => {
   const dispatch = useDispatch();
 
-    const [show, setShow] = useState(false);
-  
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <section
@@ -48,7 +48,7 @@ const SingleExpense = (props) => {
           flexDirection: 'column',
         }}
       >
- <button
+        <button
           style={{
             width: '60px',
             backgroundColor: 'grey',
@@ -81,12 +81,14 @@ const SingleExpense = (props) => {
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
-        <Modal.Body>        
-            <Edit user={props.user} editExpense={props.editExpense}/>
+        <Modal.Body>
+          <Edit
+            user={props.user}
+            editExpense={props.editExpense}
+            handleClose={handleClose}
+          />
         </Modal.Body>
-        <Modal.Footer>
-          
-        </Modal.Footer>
+        <Modal.Footer></Modal.Footer>
       </Modal>
     </section>
   );
