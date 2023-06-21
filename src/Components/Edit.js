@@ -9,6 +9,7 @@ const Edit = (props) => {
     name: props.user.name,
     category: props.user.category,
     amount: props.user.amount,
+    id: props.user.id,
   });
   const dispatch = useDispatch();
 
@@ -26,7 +27,7 @@ const Edit = (props) => {
       amount: state.amount,
       id: props.user.id,
     };
-    dispatch(editExpense(newExpense));
+    dispatch(editExpense({ id: props.user.id, newExpense }));
     setState({
       date: '',
       name: '',
@@ -174,7 +175,7 @@ const Edit = (props) => {
               type="submit"
               style={{ width: '150px', backgroundColor: 'cornflowerblue' }}
             >
-              <span>Add</span>
+              <span>Save Changes</span>
             </Button>
           </Form.Group>
         </Form>
