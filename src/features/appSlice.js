@@ -20,8 +20,10 @@ const expenseSlice = createSlice({
     editExpense: (state, action) => {
       const newState = state.expenses.map((expense) => {
         if (expense.id === action.payload.id) {
-          return action.payload;
+          return action.payload.newExpense;
+          console.log(expense.id);
         }
+        return expense;
       });
       state.expenses = [...newState];
     },
