@@ -77,7 +77,7 @@ const SingleExpense = (props) => {
           Delete
         </button>
       </div>
-      <Modal show={show} onHide={handleClose}>
+      <Modal centered show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Edit Expense</Modal.Title>
         </Modal.Header>
