@@ -72,7 +72,6 @@ const AddExpense = () => {
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
-        centered
       >
         <Form
           style={{
